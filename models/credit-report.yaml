@@ -1,0 +1,27 @@
+title: credit report
+type: object
+x-tags:
+  - vfc
+properties:
+  reportdate:
+    type: string
+    format: date-time
+  agency:
+    type: string
+    enum:
+      - Transunion
+      - Equifax
+      - Experian
+  score:
+    type: integer
+    minimum: 300
+    maximum: 850
+    example: 597
+    readOnly: true
+  details:
+    type: string
+    description: all other details returned in credit pull
+required:
+  - reportdate
+  - agency
+  - score

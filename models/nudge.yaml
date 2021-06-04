@@ -1,0 +1,17 @@
+title: nudge
+type: object
+properties:
+  nudge-when:
+    type: string
+    format: date-time
+  nudge-message:
+    type: string
+  response-action:
+    type: string
+    format: uri
+  response-when:
+    type: string
+    format: date-time
+required:
+  - nudge-when
+  - nudge-message

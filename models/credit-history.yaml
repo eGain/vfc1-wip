@@ -1,0 +1,4 @@
+title: credit-history
+type: array
+items:
+  $ref: 'credit-report.yaml'

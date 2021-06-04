@@ -1,0 +1,53 @@
+title: consumer
+type: object
+properties:
+  id:
+    type: string
+    example: '845901832'
+  name:
+    $ref: ./consumer-name.yaml
+  reach:
+    anyOf:
+      - properties:
+          email:
+            type: string
+            format: email
+            example: bobsmith@gmail.com
+          emailverified:
+            type: string
+          mobile:
+            type: string
+            example: +1-202-555-1212
+          address:
+            $ref: ./consumer-address.yaml
+          '':
+            type: string
+        required:
+          - email
+          - mobile
+          - address
+    type: object
+  financialplan:
+    $ref: ./financial-plan.yaml
+  credit-history:
+    $ref: ./credit-history.yaml
+  dob:
+    type: string
+    format: date
+  pob:
+    type: object
+    properties:
+      city:
+        type: string
+      usstate:
+        $ref: ./usstate.yaml
+    required:
+      - usstate
+  regdate:
+    type: string
+    format: date-time
+    description: DT of when this consumer record created in VFC
+required:
+  - id
+  - name
+  - reach

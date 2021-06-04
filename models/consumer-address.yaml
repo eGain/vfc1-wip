@@ -1,0 +1,18 @@
+title: address
+type: object
+properties:
+  number:
+    type: integer
+  street:
+    type: string
+  state:
+    $ref: ./usstate.yaml
+  zip:
+    type: string
+  apt:
+    type: string
+required:
+  - number
+  - street
+  - state
+  - zip

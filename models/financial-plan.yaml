@@ -1,0 +1,19 @@
+title: financial-plan
+type: object
+properties:
+  goal:
+    type: string
+    enum:
+      - Improve Credit from Poor to Fair
+      - Improve Credit from Fair to Good
+      - Improve Credit from Good to Excellent
+      - Nothing Needed
+  adviceplan:
+    type: string
+  priority:
+    type: string
+    enum:
+      - Highest
+      - High
+      - Medium
+      - Low

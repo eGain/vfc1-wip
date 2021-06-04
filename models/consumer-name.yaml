@@ -1,0 +1,23 @@
+title: consumer-name
+type: object
+properties:
+  fn:
+    type: string
+    example: Alice
+  mn:
+    type: string
+  ln:
+    type: string
+    example: Brown
+  title:
+    type: string
+    enum:
+      - Mr
+      - Ms
+      - Mrs
+  suffix:
+    type: string
+    example: Jr.
+required:
+  - fn
+  - ln
