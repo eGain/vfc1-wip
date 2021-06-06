@@ -8,6 +8,9 @@ properties:
       - Improve Credit from Fair to Good
       - Improve Credit from Good to Excellent
       - Nothing Needed
+      - Qualify for Credit Card
+      - Qualify for Auto Loan
+      - Qualify for Home Loan
   adviceplan:
     type: string
   priority:

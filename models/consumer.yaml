@@ -20,8 +20,6 @@ properties:
             example: +1-202-555-1212
           address:
             $ref: ./consumer-address.yaml
-          '':
-            type: string
         required:
           - email
           - mobile

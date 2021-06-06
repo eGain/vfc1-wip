@@ -3,12 +3,17 @@ type: object
 properties:
   number:
     type: integer
+    minimum: 0
+    example: 12225
   street:
     type: string
+    example: Mountain View Road
   state:
     $ref: ./usstate.yaml
   zip:
     type: string
+    format: zipcode
+    example: '94305'
   apt:
     type: string
 required:

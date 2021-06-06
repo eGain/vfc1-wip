@@ -12,9 +12,10 @@ properties:
   title:
     type: string
     enum:
-      - Mr
-      - Ms
-      - Mrs
+      - Mr.
+      - Ms.
+      - Mrs.
+      - Dr.
   suffix:
     type: string
     example: Jr.
