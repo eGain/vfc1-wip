@@ -12,7 +12,8 @@ info:
   license:
     name: Apache 2.0
     identifier: APSL-2.0
-servers: []
+servers:
+  - url: 'http://vfc.eGain.com:3000'
 paths:
   'credit-report/{consumer-id}':
     parameters:
