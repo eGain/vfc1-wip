@@ -1,5 +1,8 @@
 title: consumer
 type: object
+description: |-
+  A componentized consumer model, to be used in multiple references.
+  TODO: Need to reconcile with Christina
 properties:
   id:
     type: string
@@ -45,6 +48,12 @@ properties:
     type: string
     format: date-time
     description: DT of when this consumer record created in VFC
+  preferredavatar:
+    type: string
+  preferredchannel:
+    type: string
+  termsversion:
+    $ref: ./semver.yaml
 required:
   - id
   - name
