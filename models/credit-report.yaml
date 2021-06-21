@@ -46,3 +46,4 @@ required:
   - reportdate
   - agency
   - score
+description: example correct response from TransUnion for single consumer
