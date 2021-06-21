@@ -1,18 +1,18 @@
 openapi: 3.1.0
 info:
   title: vfc-api
-  version: '0.1.0-SNAPSHOT'
+  version: 0.1.0-SNAPSHOT
   summary: Virtual Financial Coach API
   description: APIs VFC1 needs to deliver credit data upon request. Data will be provided by TransUnion.
   contact:
     name: API Team at eGain
     email: APITeam@eGain.com
+    url: 'https://www.eGain.com/dev-central/'
   termsOfService: 'https://www.apache.org/licenses/LICENSE-2.0.html'
   license:
     name: Apache 2.0
     identifier: APSL-2.0
-servers:
-  - url: 'http://localhost:3000'
+servers: []
 paths:
   'credit-report/{consumer-id}':
     parameters:
@@ -32,6 +32,8 @@ paths:
             application/json:
               schema:
                 $ref: ../models/credit-report.yaml
+        '401':
+          description: Unauthorized
         '404':
           description: Consumer not found
       operationId: get-credit-report-for-consumer
