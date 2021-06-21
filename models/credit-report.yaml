@@ -21,6 +21,27 @@ properties:
   details:
     type: string
     description: all other details returned in credit pull
+  trades5m:
+    type: array
+    items:
+      type: string
+  opentradesbalance12m:
+    type: integer
+  delinquencymonths:
+    type: integer
+  opencreditutilization12m:
+    type: number
+    description: Percentage of available credit used
+  dedupedinquiries6m:
+    type: integer
+  revolvingbalanceaccounts3m:
+    type: array
+    items:
+      type: string
+  revolvingbalance:
+    type: integer
+  trendedriskscore:
+    type: number
 required:
   - reportdate
   - agency
