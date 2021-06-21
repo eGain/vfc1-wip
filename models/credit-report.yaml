@@ -2,6 +2,7 @@ title: credit report
 type: object
 x-tags:
   - vfc
+description: example correct response from TransUnion for single consumer
 properties:
   reportdate:
     type: string
@@ -12,6 +13,9 @@ properties:
       - Transunion
       - Equifax
       - Experian
+    description: |-
+      TransUnion will be supported first.
+      The other 2 maybe never.
   score:
     type: integer
     minimum: 300
@@ -46,4 +50,3 @@ required:
   - reportdate
   - agency
   - score
-description: example correct response from TransUnion for single consumer
