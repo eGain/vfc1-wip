@@ -3,7 +3,7 @@ info:
   title: vfc-api
   version: '1.0'
   summary: Virtual Financial Coach API
-  description: APIs VFC needs to deliver credit advice to consumers
+  description: APIs VFC1 needs to deliver credit data upon request. Data will be provided by TransUnion.
   contact:
     name: API Team at eGain
     email: APITeam@eGain.com
