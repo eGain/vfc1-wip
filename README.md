@@ -1,6 +1,7 @@
 # vfc1 api
-- 2021-06-04 
-- SSYH
+SSYH
+- 2021-06-21 - first wip at credit-report path (200, 404)
+- 2021-06-04 - committed componentized models
 ## Caveats
 - Much will change. This is far from usable. 
 - Only schemas are reasonably fleshed out
