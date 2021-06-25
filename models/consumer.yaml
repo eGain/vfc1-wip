@@ -2,7 +2,7 @@ title: consumer
 type: object
 description: |-
   A componentized consumer model, to be used in multiple references.
-  TODO: Need to reconcile with Christina
+  TODO: Need to reconcile with Christian
 properties:
   id:
     type: string
