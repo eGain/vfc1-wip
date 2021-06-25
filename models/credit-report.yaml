@@ -12,9 +12,9 @@ properties:
   agency:
     type: string
     enum:
-      - Transunion
       - Equifax
       - Experian
+      - TransUnion
     description: |-
       TransUnion will be supported first.
       The other 2 maybe never.
@@ -26,7 +26,7 @@ properties:
     readOnly: true
   details:
     type: string
-    description: all other details returned in credit pull
+    description: Placeholder for additional details
   trades5m:
     type: array
     items:
@@ -40,12 +40,15 @@ properties:
     description: Percentage of available credit used
   dedupedinquiries6m:
     type: integer
+    minimum: 0
   revolvingbalanceaccounts3m:
     type: array
+    description: This will probably evolve as we know more about how each balance record is structured.
     items:
       type: string
   revolvingbalance:
     type: integer
+    minimum: 0
   trendedriskscore:
     type: number
 required:

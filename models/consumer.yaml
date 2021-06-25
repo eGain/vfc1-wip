@@ -50,8 +50,10 @@ properties:
     description: DT of when this consumer record created in VFC
   preferredavatar:
     type: string
+    description: 'This will probably change, to either point to a file object, or a URL'
   preferredchannel:
     type: string
+    description: 'This will probably change, to become an enum object'
   termsversion:
     $ref: ./semver.yaml
 required:
