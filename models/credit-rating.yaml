@@ -7,6 +7,7 @@ x-examples:
   example-1:
     rating: good
     trend: better-than-last-month
+    score: 650
 properties:
   rating:
     type: string
@@ -26,3 +27,9 @@ properties:
       - better-than-last-month
       - better-than-last-quarter
     example: better-than-last-month
+  score:
+    type: integer
+    minimum: 300
+    maximum: 850
+    example: 650
+    description: score (number) still needed per CV 06-28
