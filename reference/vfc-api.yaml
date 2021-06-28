@@ -34,12 +34,24 @@ paths:
             application/json:
               schema:
                 $ref: ../models/credit-rating.yaml
+        '202':
+          description: Accepted & Credit Rating Determined for Consumer
+          content:
+            application/json:
+              schema:
+                $ref: ../models/credit-rating.yaml
         '401':
           description: Unauthorized
+        '402':
+          description: Payment Required - you have no more requests available on your subscription plan
         '404':
-          description: Consumer rating not retrieved
-        '408':
-          description: Request Timeout
+          description: Consumer rating not retrieved - reporting agency did not respond
+        '429':
+          description: Too Many Requests - you have made too many requests in a recent period; wait a while
+        '500':
+          description: Internal Server Error
+        '503':
+          description: Service Unavailable
       operationId: get-consumer-credit-rating
       description: |-
         Retrieve credit report of consumer by consumer identifier. 
