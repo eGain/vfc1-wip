@@ -78,6 +78,24 @@ paths:
             application/json:
               schema:
                 $ref: ../models/consumer.yaml
+        '202':
+          description: Accepted & Details Enclosed
+          content:
+            application/json:
+              schema:
+                $ref: ../models/consumer.yaml
+        '401':
+          description: Unauthorized
+        '402':
+          description: Payment Required - you have no more requests available on your subscription plan
+        '404':
+          description: Consumer details not retrieved
+        '429':
+          description: Too Many Requests - you have made too many requests in a recent period; wait a while
+        '500':
+          description: Internal Server Error
+        '503':
+          description: Service Unavailable
       operationId: get-consumer-details
       parameters:
         - schema:
