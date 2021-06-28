@@ -20,7 +20,7 @@ paths:
   consumer/get-rating:
     parameters: []
     get:
-      summary: get credit rating for one consumer
+      summary: get consumer credit rating
       tags:
         - BusinessLogicLayer
       responses:
