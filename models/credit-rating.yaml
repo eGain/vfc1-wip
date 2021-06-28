@@ -1,0 +1,12 @@
+title: credit-rating
+type: object
+properties:
+  id:
+    type: string
+    enum:
+      - poor
+      - fair
+      - good
+      - excellent
+    example: good
+    readOnly: true
