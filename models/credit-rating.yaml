@@ -19,3 +19,6 @@ properties:
       - better-than-last-month
       - better-than-last-quarter
     example: better-than-last-month
+description: BLL API
+x-tags:
+  - BusinessLogicLayer

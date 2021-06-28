@@ -1,7 +1,5 @@
 title: credit report
 type: object
-x-tags:
-  - vfc
 description: |-
   Example correct response from TransUnion for single consumer.
   TODO: The names have not yet been reconciled with Christian's names.
@@ -55,3 +53,6 @@ required:
   - reportdate
   - agency
   - score
+x-tags:
+  - DataLayer
+  - IntegrationLayer
