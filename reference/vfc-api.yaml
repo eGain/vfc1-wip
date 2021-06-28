@@ -17,16 +17,15 @@ info:
 servers:
   - url: 'http://vfc.eGain.com:3000'
 paths:
-  'credit-report/{consumer-id}':
+  'consumer/{consumer-identifier}/get-rating':
     parameters:
       - schema:
           type: string
-        name: consumer-id
+        name: consumer-identifier
         in: path
         required: true
-        description: consumer ID of an existing user
     get:
-      summary: get credit data for one consumer
+      summary: get credit rating for one consumer
       tags: []
       responses:
         '200':
@@ -34,13 +33,26 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/credit-report.yaml
+                $ref: ../models/credit-rating.yaml
         '401':
           description: Unauthorized
         '404':
-          description: Consumer not found
-      operationId: get-credit-report-for-consumer
-      description: Retrieve credit report of consumer by consumer ID
+          description: Consumer rating not retrieved
+        '408':
+          description: Request Timeout
+      operationId: get-consumer-credit-rating
+      description: |-
+        Retrieve credit report of consumer by consumer identifier. 
+        "consumer identifier" can be one of: (a few different forms)
+      parameters:
+        - schema:
+            type: string
+            enum:
+              - consumer-id
+              - name-and-address
+              - name-and-ssn
+          in: query
+          name: consumer-identifier
 components:
   schemas:
     consumer-name:
