@@ -63,11 +63,6 @@ paths:
               - consumer-id
               - name-and-address
               - name-and-ssn
+            example: consumer-id
           in: query
           name: consumer-identifier
-components:
-  schemas:
-    consumer-name:
-      $ref: ../models/consumer-name.yaml
-    credit-report:
-      $ref: ../models/credit-report.yaml
