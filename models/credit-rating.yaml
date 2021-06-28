@@ -9,4 +9,13 @@ properties:
       - good
       - excellent
     example: good
-    readOnly: true
+  trend:
+    type: string
+    enum:
+      - same-as-last-month
+      - same-as-last-quarter
+      - worse-than-last-month
+      - worse-than-last-quarter
+      - better-than-last-month
+      - better-than-last-quarter
+    example: better-than-last-month
