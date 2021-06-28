@@ -1,7 +1,14 @@
 title: credit-rating
 type: object
+description: BLL API
+x-tags:
+  - BusinessLogicLayer
+x-examples:
+  example-1:
+    rating: good
+    trend: better-than-last-month
 properties:
-  id:
+  rating:
     type: string
     enum:
       - poor
@@ -19,6 +26,3 @@ properties:
       - better-than-last-month
       - better-than-last-quarter
     example: better-than-last-month
-description: BLL API
-x-tags:
-  - BusinessLogicLayer
