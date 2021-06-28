@@ -17,16 +17,12 @@ info:
 servers:
   - url: 'http://vfc.eGain.com:3000'
 paths:
-  'consumer/{consumer-identifier}/get-rating':
-    parameters:
-      - schema:
-          type: string
-        name: consumer-identifier
-        in: path
-        required: true
+  consumer/get-rating:
+    parameters: []
     get:
       summary: get credit rating for one consumer
-      tags: []
+      tags:
+        - BusinessLogicLayer
       responses:
         '200':
           description: Credit data found for consumer
@@ -53,16 +49,49 @@ paths:
         '503':
           description: Service Unavailable
       operationId: get-consumer-credit-rating
-      description: |-
-        Retrieve credit report of consumer by consumer identifier. 
-        "consumer identifier" can be one of: (a few different forms)
+      description: Retrieve summary credit items of consumer by consumer identifier
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/consumer-identifier.yaml
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              properties: {}
+        description: 'Consumer to get credit rating for '
+  /consumer/get-details:
+    parameters: []
+    get:
+      summary: get consumer details
+      tags:
+        - DataLayer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: ../models/consumer.yaml
+      operationId: get-consumer-details
       parameters:
         - schema:
             type: string
-            enum:
-              - consumer-id
-              - name-and-address
-              - name-and-ssn
-            example: consumer-id
           in: query
           name: consumer-identifier
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: ../models/consumer-identifier.yaml
+        description: Consumer to get details for
+      description: Get details on consumer
+tags:
+  - name: BusinessLogicLayer
+  - name: DataLayer
+  - name: IntegrationLayer

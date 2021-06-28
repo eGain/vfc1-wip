@@ -1,0 +1,9 @@
+title: consumer-identifier
+type: object
+properties:
+  id:
+    type: string
+    enum:
+      - consumer-id
+      - name-and-address
+      - name-and-ssn
