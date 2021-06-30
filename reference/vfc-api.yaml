@@ -65,10 +65,10 @@ paths:
               type: object
               properties: {}
         description: 'Consumer to get credit rating for '
-  /consumer/get-details:
+  /consumer/get-consumer-profile:
     parameters: []
     get:
-      summary: get consumer details
+      summary: get consumer profile
       tags:
         - DataLayer
       responses:
@@ -77,13 +77,151 @@ paths:
           content:
             application/json:
               schema:
-                $ref: ../models/consumer.yaml
+                description: ''
+                type: object
+                properties:
+                  vfccmrid:
+                    type: string
+                    minLength: 1
+                  emailaddress:
+                    type: string
+                    minLength: 1
+                  cell:
+                    type: string
+                    minLength: 1
+                  fname:
+                    type: string
+                    minLength: 1
+                  surname:
+                    type: string
+                    minLength: 1
+                  SSN:
+                    type: string
+                    minLength: 1
+                  photo:
+                    type: string
+                    minLength: 1
+                  dob:
+                    type: string
+                    minLength: 1
+                  addressline1:
+                    type: string
+                    minLength: 1
+                  addressline2:
+                    type: string
+                  postalcode:
+                    type: string
+                    minLength: 1
+                  city:
+                    type: string
+                    minLength: 1
+                  state:
+                    type: string
+                    minLength: 1
+                required:
+                  - vfccmrid
+                  - emailaddress
+                  - cell
+                  - fname
+                  - surname
+                  - SSN
+                  - photo
+                  - dob
+                  - addressline1
+                  - addressline2
+                  - postalcode
+                  - city
+                  - state
+                x-examples:
+                  example-1:
+                    vfccmrid: cmr005
+                    emailaddress: brandon.bale@gmail.com
+                    cell: '2345678912'
+                    fname: Brandon
+                    surname: Bale
+                    SSN: 757-85-7495
+                    photo: <base64 encoded img>
+                    dob: '1479-06-15'
+                    addressline1: 1252 Borregas Ave
+                    addressline2: ''
+                    postalcode: '94089'
+                    city: Sunnyvale
+                    state: CA
         '202':
           description: Accepted & Details Enclosed
           content:
             application/json:
               schema:
-                $ref: ../models/consumer.yaml
+                description: ''
+                type: object
+                properties:
+                  vfccmrid:
+                    type: string
+                    minLength: 1
+                  emailaddress:
+                    type: string
+                    minLength: 1
+                  cell:
+                    type: string
+                    minLength: 1
+                  fname:
+                    type: string
+                    minLength: 1
+                  surname:
+                    type: string
+                    minLength: 1
+                  SSN:
+                    type: string
+                    minLength: 1
+                  photo:
+                    type: string
+                    minLength: 1
+                  dob:
+                    type: string
+                    minLength: 1
+                  addressline1:
+                    type: string
+                    minLength: 1
+                  addressline2:
+                    type: string
+                  postalcode:
+                    type: string
+                    minLength: 1
+                  city:
+                    type: string
+                    minLength: 1
+                  state:
+                    type: string
+                    minLength: 1
+                required:
+                  - vfccmrid
+                  - emailaddress
+                  - cell
+                  - fname
+                  - surname
+                  - SSN
+                  - photo
+                  - dob
+                  - addressline1
+                  - addressline2
+                  - postalcode
+                  - city
+                  - state
+                x-examples:
+                  example-1:
+                    vfccmrid: cmr005
+                    emailaddress: brandon.bale@gmail.com
+                    cell: '2345678912'
+                    fname: Brandon
+                    surname: Bale
+                    SSN: 757-85-7495
+                    photo: <base64 encoded img>
+                    dob: '1479-06-15'
+                    addressline1: 1252 Borregas Ave
+                    addressline2: ''
+                    postalcode: '94089'
+                    city: Sunnyvale
+                    state: CA
         '401':
           description: Unauthorized
         '402':
@@ -96,19 +234,372 @@ paths:
           description: Internal Server Error
         '503':
           description: Service Unavailable
-      operationId: get-consumer-details
+        '':
+          operationId: get-consumer-details
       parameters:
         - schema:
             type: string
           in: query
-          name: consumer-identifier
+          name: consumer-id
       requestBody:
         content:
           application/json:
             schema:
               $ref: ../models/consumer-identifier.yaml
-        description: Consumer to get details for
-      description: Get details on consumer
+        description: 'Consumer '
+      description: Get full consumer profile (details)
+      operationId: get-consumer-profile
+  /consumer/get-consumer-details:
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  vfccmrid:
+                    type: string
+                    minLength: 1
+                  emailaddress:
+                    type: string
+                    minLength: 1
+                  cell:
+                    type: string
+                    minLength: 1
+                  fname:
+                    type: string
+                    minLength: 1
+                  SSN:
+                    type: string
+                    minLength: 1
+                  addressline1:
+                    type: string
+                    minLength: 1
+                  addressline2:
+                    type: string
+                  postalcode:
+                    type: string
+                    minLength: 1
+                  city:
+                    type: string
+                    minLength: 1
+                  state:
+                    type: string
+                    minLength: 1
+                  creditscores:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - date
+                        - vscore
+                        - csutil
+                        - csinq
+                        - csmp
+                        - csot
+                      properties:
+                        date:
+                          type: string
+                          minLength: 1
+                        vscore:
+                          type: string
+                          minLength: 1
+                        csutil:
+                          type: string
+                          minLength: 1
+                        csinq:
+                          type: string
+                          minLength: 1
+                        csmp:
+                          type: string
+                          minLength: 1
+                        csot:
+                          type: string
+                          minLength: 1
+                  actids:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      required:
+                        - actid
+                        - vasid
+                        - date
+                        - contactreason
+                        - planref
+                      properties:
+                        actid:
+                          type: string
+                          minLength: 1
+                        vasid:
+                          type: string
+                          minLength: 1
+                        date:
+                          type: string
+                          minLength: 1
+                        contactreason:
+                          type: string
+                          minLength: 1
+                        planref:
+                          type: string
+                          minLength: 1
+                required:
+                  - vfccmrid
+                  - emailaddress
+                  - cell
+                  - fname
+                  - SSN
+                  - addressline1
+                  - addressline2
+                  - postalcode
+                  - city
+                  - state
+                  - creditscores
+                  - actids
+                x-examples:
+                  example-1:
+                    vfccmrid: cmr005
+                    emailaddress: brandon.bale@gmail.com
+                    cell: '789461236'
+                    fname: Brandon
+                    SSN: 757-85-7495
+                    addressline1: 1252 Borregas Ave
+                    addressline2: ''
+                    postalcode: '94089'
+                    city: Sunnyvale
+                    state: CA
+                    creditscores:
+                      - date: 2021/05/01
+                        vscore: '600'
+                        csutil: '60'
+                        csinq: '0'
+                        csmp: '24'
+                        csot: '2'
+                      - date: 2021/06/01
+                        vscore: '630'
+                        csutil: '70'
+                        csinq: '0'
+                        csmp: '0'
+                        csot: '2'
+                    actids:
+                      - actid: '123649654'
+                        vasid: '123649654'
+                        date: 2021/05/01
+                        contactreason: Credit Card
+                        planref: 1a1b
+              examples: {}
+      operationId: get-consumer-details
+      description: Get details for consumer
+  /consumer/update-customer:
+    post:
+      summary: ''
+      description: Add new information to consumer
+      operationId: update-customer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  vfccmrid:
+                    type: string
+                    minLength: 1
+                  outcome:
+                    type: string
+                    minLength: 1
+                required:
+                  - vfccmrid
+                  - outcome
+                x-examples:
+                  example-1:
+                    vfccmrid: cmr005
+                    outcome: success
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: consumer-id
+    parameters: []
+  /consumer/add-consumer-credit-score:
+    post:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  vfccmrid:
+                    type: string
+                    minLength: 1
+                  outcome:
+                    type: string
+                    minLength: 1
+                  creditscore:
+                    type: object
+                    properties:
+                      vscore:
+                        type: string
+                        minLength: 1
+                      csutil:
+                        type: string
+                        minLength: 1
+                      csinq:
+                        type: string
+                        minLength: 1
+                      csmp:
+                        type: string
+                        minLength: 1
+                      csot:
+                        type: string
+                        minLength: 1
+                    required:
+                      - vscore
+                      - csutil
+                      - csinq
+                      - csmp
+                      - csot
+                required:
+                  - vfccmrid
+                  - outcome
+                  - creditscore
+                x-examples:
+                  example-1:
+                    vfccmrid: cmr005
+                    outcome: success
+                    creditscore:
+                      vscore: '630'
+                      csutil: '70'
+                      csinq: '0'
+                      csmp: '0'
+                      csot: '2'
+      operationId: add-consumer-credit-score
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: consumer-id
+      description: store a credit score
+  /consumer/add-customer-activity:
+    post:
+      summary: ''
+      operationId: post-consumer-add-customer-activity
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  vfccmrid:
+                    type: string
+                    minLength: 1
+                  actid:
+                    type: string
+                    minLength: 1
+                  outcome:
+                    type: string
+                    minLength: 1
+                required:
+                  - vfccmrid
+                  - actid
+                  - outcome
+                x-examples:
+                  example-1:
+                    vfccmrid: cmr005
+                    actid: '123354'
+                    outcome: success
+              examples:
+                example-1:
+                  value:
+                    vfccmrid: cmr005
+                    actid: '123354'
+                    outcome: success
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: consumer-id
+        - schema:
+            type: string
+          in: query
+          name: vasid
+        - schema:
+            type: string
+          in: query
+          name: user-agent
+      description: track activity for future reference
+  /consumer/update-consumer-activity:
+    put:
+      summary: ''
+      operationId: put-consumer-update-consumer-activity
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  vfccmrid:
+                    type: string
+                    minLength: 1
+                  actid:
+                    type: string
+                    minLength: 1
+                  outcome:
+                    type: string
+                    minLength: 1
+                required:
+                  - vfccmrid
+                  - actid
+                  - outcome
+                x-examples:
+                  example-1:
+                    vfccmrid: cmr005
+                    actid: '123354'
+                    outcome: success
+              examples:
+                example-1:
+                  value:
+                    vfccmrid: cmr005
+                    actid: '123354'
+                    outcome: success
+      parameters:
+        - schema:
+            type: string
+          in: query
+          name: actid
+          required: true
+        - schema:
+            type: string
+          in: query
+          name: vasid
+        - schema:
+            type: string
+          in: query
+          name: contactreason
+        - schema:
+            type: string
+          in: query
+          name: planref
+      description: update consumer activity
 tags:
   - name: BusinessLogicLayer
   - name: DataLayer
