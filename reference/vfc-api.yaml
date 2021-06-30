@@ -113,3 +113,6 @@ tags:
   - name: BusinessLogicLayer
   - name: DataLayer
   - name: IntegrationLayer
+components:
+  parameters: {}
+  responses: {}
